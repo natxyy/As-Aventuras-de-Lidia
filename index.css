@@ -1,0 +1,105 @@
+/* Estilo geral para o corpo da página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Título principal */
+h1 {
+    font-size: 2.5rem;
+    color: #5A2D44;
+    margin-top: 30px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do texto da história */
+.story-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #4f4f4f;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 10px;
+    text-align: justify;
+}
+
+/* Div para as opções de escolha */
+.choice {
+    margin-top: 30px;
+}
+
+/* Botões personalizados */
+button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+/* Cores dos botões */
+.btn-rosa {
+    background-color: #f06292;
+    color: white;
+}
+
+.btn-roxo {
+    background-color: #8e44ad;
+    color: white;
+}
+
+/* Efeito de hover nos botões */
+button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* Estilo da área de escolha final */
+.final-choice {
+    margin-top: 40px;
+}
+
+/* Estilo para as mensagens finais */
+.final-message {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2d2d2d;
+    margin-top: 40px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+/* Efeito de sombra suave na página */
+#story {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+/* Estilo da barra de rolagem (para maior controle de visualização em telas pequenas) */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+}

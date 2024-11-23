@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Jornada de Lúcia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #5A2D44;
+        }
+        .choice {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        .story-text {
+            font-size: 18px;
+        }
+
+        /* Cores dos botões */
+        .btn-rosa {
+            background-color: #f06292;
+            color: white;
+        }
+        .btn-roxo {
+            background-color: #8e44ad;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>A Jornada de Lúcia, a Princesa Aventureira</h1>
+    
+    <div id="story">
+        <p class="story-text">No reino de Altheria, a princesa Lúcia, sempre apaixonada por aventuras, recebe uma missão urgente: entrar na Floresta Sombria para recuperar o Cristal de Luz e salvar o reino de uma maldição antiga.</p>
+
+        <p class="story-text">O mago real, Faran, oferece a Lúcia três opções de equipamentos mágicos, cada um com suas habilidades especiais, mas ela só pode escolher um.</p>
+
+        <div class="choice">
+            <button class="btn-rosa" onclick="chooseEquipment('a')">Escolher espada encantada</button>
+            <button class="btn-roxo" onclick="chooseEquipment('b')">Escolher amuleto</button>
+            <button class="btn-rosa" onclick="chooseEquipment('c')">Escolher capa invisível</button>
+        </div>
+    </div>
+
+    <script>
+        function chooseEquipment(choice) {
+            let storyText = document.getElementById("story");
+            storyText.innerHTML = ''; // Clear current story content
+            
+            if (choice === 'a') {
+                storyText.innerHTML = '<p class="story-text">Você escolheu a espada encantada! Com ela em mãos, você está pronta para enfrentar qualquer desafio na Floresta Sombria.</p>';
+                nextChoice();
+            } else if (choice === 'b') {
+                storyText.innerHTML = '<p class="story-text">Você escolheu o amuleto! Agora você pode se comunicar com os animais da floresta para obter ajuda.</p>';
+                nextChoice();
+            } else if (choice === 'c') {
+                storyText.innerHTML = '<p class="story-text">Você escolheu a capa invisível! Agora você pode se tornar invisível por breves momentos, o que será muito útil para evitar perigos.</p>';
+                nextChoice();
+            }
+        }
+
+        function nextChoice() {
+            let choiceDiv = document.createElement("div");
+            choiceDiv.classList.add("choice");
+            
+            choiceDiv.innerHTML = `
+                <button class="btn-rosa" onclick="continueStory('a')">Investigar o som misterioso</button>
+                <button class="btn-roxo" onclick="continueStory('b')">Ignorar o som e continuar</button>
+                <button class="btn-rosa" onclick="continueStory('c')">Preparar-se para atacar</button>
+            `;
+            document.getElementById("story").appendChild(choiceDiv);
+        }
+
+        function continueStory(choice) {
+            let storyText = document.getElementById("story");
+            storyText.innerHTML = ''; // Clear current story content
+
+            if (choice === 'a') {
+                storyText.innerHTML = '<p class="story-text">Você se aproxima cuidadosamente e descobre que era apenas um esquilo curioso. Você segue em frente, aliviada.</p>';
+                showNextChoices();
+            } else if (choice === 'b') {
+                storyText.innerHTML = '<p class="story-text">Você decide ignorar o som e continuar sua jornada pela floresta sombria. O caminho fica mais perigoso à medida que avança.</p>';
+                showNextChoices();
+            } else if (choice === 'c') {
+                storyText.innerHTML = '<p class="story-text">Você se prepara para atacar, mas descobre que era apenas uma sombra passando. O perigo era imaginário, mas sua vigilância foi necessária.</p>';
+                showNextChoices();
+            }
+        }
+
+        function showNextChoices() {
+            let choiceDiv = document.createElement("div");
+            choiceDiv.classList.add("choice");
+            
+            choiceDiv.innerHTML = `
+                <button class="btn-rosa" onclick="finalDecision('a')">Seguir pela estrada iluminada</button>
+                <button class="btn-roxo" onclick="finalDecision('b')">Optar pelo caminho misterioso</button>
+                <button class="btn-rosa" onclick="finalDecision('c')">Voltar pelo caminho que veio</button>
+            `;
+            document.getElementById("story").appendChild(choiceDiv);
+        }
+
+        function finalDecision(choice) {
+            let storyText = document.getElementById("story");
+            storyText.innerHTML = ''; // Clear current story content
+
+            if (choice === 'a') {
+                storyText.innerHTML = '<p class="story-text">Você segue pela estrada iluminada, mas logo se depara com monstros sombrios! Um grande desafio está à sua espera.</p>';
+                showEndChoices();
+            } else if (choice === 'b') {
+                storyText.innerHTML = '<p class="story-text">Você opta pelo caminho misterioso coberto de neblina. Ele parece seguro, mas esconde muitos segredos.</p>';
+                showEndChoices();
+            } else if (choice === 'c') {
+                storyText.innerHTML = '<p class="story-text">Você decide voltar pelo caminho que veio, mas os perigos da floresta parecem te seguir...</p>';
+                showEndChoices();
+            }
+        }
+
+        function showEndChoices() {
+            let choiceDiv = document.createElement("div");
+            choiceDiv.classList.add("choice");
+
+            choiceDiv.innerHTML = `
+                <button class="btn-rosa" onclick="endStory('a')">Usar o Cristal para combater as sombras</button>
+                <button class="btn-roxo" onclick="endStory('b')">Lutar com a espada contra os monstros</button>
+                <button class="btn-rosa" onclick="endStory('c')">Confiar no amuleto para pedir ajuda dos animais</button>
+            `;
+            document.getElementById("story").appendChild(choiceDiv);
+        }
+
+        function endStory(choice) {
+            let storyText = document.getElementById("story");
+            storyText.innerHTML = ''; // Clear current story content
+
+            if (choice === 'a') {
+                storyText.innerHTML = '<p class="story-text">Você usa o Cristal de Luz para dissipar as sombras e trazer a paz de volta ao reino. Sua coragem foi recompensada.</p>';
+                finalMessage('A paz foi restaurada, e o reino celebrou a vitória de sua princesa aventureira.');
+            } else if (choice === 'b') {
+                storyText.innerHTML = '<p class="story-text">Você luta bravamente com a espada, derrotando os monstros e salvando o reino. Seu nome será lembrado para sempre.</p>';
+                finalMessage('Com sua espada, Lúcia provou ser a verdadeira heroína de Altheria.');
+            } else if (choice === 'c') {
+                storyText.innerHTML = '<p class="story-text">Você usa o amuleto para chamar os animais da floresta, que ajudam a derrotar os inimigos com suas forças combinadas.</p>';
+                finalMessage('Com a ajuda dos animais, o reino foi salvo, e Lúcia se tornou uma lenda viva.');
+            }
+        }
+
+        function finalMessage(message) {
+            let choiceDiv = document.createElement("div");
+            choiceDiv.classList.add("choice");
+            choiceDiv.innerHTML = `<p class="story-text">${message}</p>`;
+            document.getElementById("story").appendChild(choiceDiv);
+        }
+    </script>
+
+</body>
+</html>
